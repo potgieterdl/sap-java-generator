@@ -1,0 +1,57 @@
+
+**** Error file opened at 20160321 101455 South Africa Standard Time Rel. 3.0.14 (2015-12-16) [721.619]
+Error:  >Mon Mar 21 10:14:55,732<    RfcException:
+    message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=DP_ABAP_AS_WITH_POOL ASHOST=128.87.245.163 SYSNR=00 SAPROUTER=/H/197.234.173.1/W/FunkyChicken99 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner '197.234.173.1:3299' not reached
+TIME        Mon Mar 21 10:14:55 2016
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 197.234.173.1:3299
+SYSTEM CALL connect
+ERRNO       61
+ERRNO TEXT  Connection refused
+COUNTER     2
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20160321 101648 South Africa Standard Time Rel. 3.0.14 (2015-12-16) [721.619]
+Error:  >Mon Mar 21 10:16:48,094<    RfcException:
+    message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=DP_ABAP_AS_WITH_POOL ASHOST=128.87.245.163 SYSNR=00 SAPROUTER=/H/197.234.173.1/W/FunkyChicken99 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner '197.234.173.1:3299' not reached
+TIME        Mon Mar 21 10:16:48 2016
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 197.234.173.1:3299
+SYSTEM CALL connect
+ERRNO       61
+ERRNO TEXT  Connection refused
+COUNTER     2
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20160321 101749 South Africa Standard Time Rel. 3.0.14 (2015-12-16) [721.619]
+Error:  >Mon Mar 21 10:17:49,181<    RfcException:
+    message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=DP_ABAP_AS_WITH_POOL ASHOST=/H/128.87.245.163/S/3200 SYSNR=00 PCS=1
+no SAP ErrInfo available
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION

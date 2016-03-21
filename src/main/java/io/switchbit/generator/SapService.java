@@ -374,19 +374,7 @@ public class SapService {
             it = importParameters.getParameterFieldIterator();
             log.debug("=============================== IMPORT =========================================");
             while (it.hasNextField()) {
-                log.debug("---------------------------------------------");
-                JCoField test = it.nextParameterField();
-                log.debug(test.getName());
-                log.debug(test.getDescription());
-                log.debug(test.getClassNameOfValue());
-                log.debug(test.getTypeAsString());
-                if (test.getTypeAsString().equals("TABLE")) {
-                    printFieldDebugInfo(test.getTable().getRecordFieldIterator());
-                }
-                if (test.getTypeAsString().equals("STRUCTURE")) {
-                    printFieldDebugInfo(test.getStructure().getRecordFieldIterator());
-                }
-                log.debug("---------------------------------------------");
+                printFieldDebugInfo(it.nextParameterField());
             }
         }
 
@@ -395,18 +383,7 @@ public class SapService {
             it = exportParameters.getParameterFieldIterator();
             log.debug("================================ EXPORT ========================================");
             while (it.hasNextField()) {
-                log.debug("---------------------------------------------");
-                JCoField test = it.nextParameterField();
-                log.debug(test.getName());
-                log.debug(test.getDescription());
-                log.debug(test.getClassNameOfValue());
-                log.debug(test.getTypeAsString());
-                if (test.getTypeAsString().equals("TABLE")) {
-                    printFieldDebugInfo(test.getTable().getRecordFieldIterator());
-                }
-                if (test.getTypeAsString().equals("STRUCTURE")) {
-                    printFieldDebugInfo(test.getStructure().getRecordFieldIterator());
-                }
+                printFieldDebugInfo(it.nextParameterField());
             }
 
             log.debug("---------------------------------------------");
@@ -417,27 +394,13 @@ public class SapService {
             it = tableParameters.getParameterFieldIterator();
             log.debug("================================ TABLE ========================================");
             while (it.hasNextField()) {
-                log.debug("---------------------------------------------");
-                JCoField test = it.nextParameterField();
-                log.debug("getName                          " + test.getName());
-                log.debug("getDescription                   " + test.getDescription());
-                log.debug("getClassNameOfValue              " + test.getClassNameOfValue());
-                log.debug("getTypeAsString                  " + test.getTypeAsString());
-//                log.debug("getRecordMetaData:toString       " + test.getRecordMetaData() == null ? "null" : test.getRecordMetaData().toString());
-                if (test.getTypeAsString().equals("TABLE")) {
-                    printFieldDebugInfo(test.getTable().getRecordFieldIterator());
-                }
-                if (test.getTypeAsString().equals("STRUCTURE")) {
-                    printFieldDebugInfo(test.getStructure().getRecordFieldIterator());
-                }
-                log.debug("---------------------------------------------");
+                printFieldDebugInfo(it.nextParameterField());
             }
         }
 
         // try to call function
         try {
 //            function.getImportParameterList().setValue("IM_CUSTOMER", "213");
-
             params.forEach((key,value)->{
                 log.debug("Item : " + key + " Count : " + value);
                 function.getImportParameterList().setValue(key, value);
@@ -450,6 +413,21 @@ public class SapService {
         }
 
         return prettyFormat(function.toXML());
+    }
+
+    public void printFieldDebugInfo(JCoParameterField field){
+        log.debug("---------------------------------------------------------------");
+        log.debug("  Name                          " + field.getName());
+        log.debug("  Description                   " + field.getDescription());
+        log.debug("  ClassNameOfValue              " + field.getClassNameOfValue());
+        log.debug("  TypeAsString                  " + field.getTypeAsString());
+        if (field.getTypeAsString().equals("TABLE")) {
+            printFieldDebugInfo(field.getTable().getRecordFieldIterator());
+        }
+        if (field.getTypeAsString().equals("STRUCTURE")) {
+            printFieldDebugInfo(field.getStructure().getRecordFieldIterator());
+        }
+        log.debug("---------------------------------------------------------------");
     }
 
     public void printFieldDebugInfo(JCoRecordFieldIterator recordFieldIterator) {
