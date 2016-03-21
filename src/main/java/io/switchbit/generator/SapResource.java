@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.annotation.MultipartConfig;
 import java.io.File;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -26,9 +27,9 @@ public class SapResource {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping(value = "/sap/{rfcName}", method = RequestMethod.GET)
-    public String diagnoseRFC(@PathVariable(value="rfcName") String rfcName) {
+    public String diagnoseRFC(@PathVariable(value="rfcName") String rfcName, @RequestParam Map<String, String> params) {
         try {
-            return sapService.diagnoseBapi(rfcName);
+            return sapService.diagnoseBapi(rfcName, params);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("IOError writing file to output stream");

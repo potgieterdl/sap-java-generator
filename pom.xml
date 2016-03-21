@@ -59,7 +59,7 @@
 			<activation>
 				<os>
 					<arch>x86_64</arch>
-					<family>mac</family>
+					<family>linux</family>
 				</os>
 			</activation>
 			<properties>

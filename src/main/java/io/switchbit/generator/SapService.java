@@ -360,7 +360,7 @@ public class SapService {
 
     }
 
-    public String diagnoseBapi(String bapiName) throws JCoException {
+    public String diagnoseBapi(String bapiName, Map<String, String> params) throws JCoException {
         JCoFunction function = destination.getRepository().getFunction(bapiName);
         if (function == null) {
             throw new RuntimeException(bapiName + " not found in SAP.");
@@ -437,6 +437,12 @@ public class SapService {
         // try to call function
         try {
 //            function.getImportParameterList().setValue("IM_CUSTOMER", "213");
+
+            params.forEach((key,value)->{
+                log.debug("Item : " + key + " Count : " + value);
+                function.getImportParameterList().setValue(key, value);
+            });
+
             function.execute(destination);
 
         } catch (AbapException e) {

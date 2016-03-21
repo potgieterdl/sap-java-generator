@@ -21,7 +21,8 @@ spring:
   profiles: dev.mac
 sap:
   jco:
-    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
+    ashost: "128.87.245.163"
+#    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
     client: "700"
 ---
 spring:
