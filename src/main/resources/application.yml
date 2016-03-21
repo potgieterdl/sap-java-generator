@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+sap:
+  jco:
+    sysnr: "00"
+    user: "dpotgieter"
+    passwd: "mobile"
+    lang: "en"
+    poolCapacity: "3"
+    peakLimit: "10"
+---
+spring:
+  profiles: dev.win
+sap:
+  jco:
+    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
+    client: "700"
+---
+spring:
+  profiles: dev.mac
+sap:
+  jco:
+    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
+    client: "700"
+---
+spring:
+  profiles: uat.win
+sap:
+  jco:
+    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.169/W/FunkyChicken99/H/"
+    client: "200"
+---
+spring:
+  profiles: uat.mac
+sap:
+  jco:
+    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.161/S/3200"
+    client: "200"
