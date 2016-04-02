@@ -126,7 +126,10 @@ public class SapService {
                         builder.addField(FieldSpec.builder(ParameterizedTypeName.get(list, newType), fieldName)
                             .addModifiers(Modifier.PRIVATE, Modifier.FINAL)
                             .addAnnotation(Import.class)
-                            .addAnnotation(AnnotationSpec.builder(Parameter.class).addMember("value", "$S", test.getName()).build())
+                            .addAnnotation(AnnotationSpec.builder(Parameter.class)
+                                    .addMember("value", "$S", test.getName())
+                                    .addMember("type", "$T.$L", ParameterType.class, ParameterType.TABLE_STRUCTURE.name())
+                                    .build())
                             .addJavadoc("$S", test.getDescription())
                             .build());
                         builder.addType(buildSubClass(typeName, test.getTable().getRecordFieldIterator()).build());
@@ -199,7 +202,10 @@ public class SapService {
                             builder.addField(FieldSpec.builder(ParameterizedTypeName.get(list, newType), fieldName)
                                 .addModifiers(Modifier.PRIVATE)
                                 .addAnnotation(Export.class)
-                                .addAnnotation(AnnotationSpec.builder(Parameter.class).addMember("value", "$S", test.getName()).build())
+                                .addAnnotation(AnnotationSpec.builder(Parameter.class)
+                                        .addMember("value", "$S", test.getName())
+                                        .addMember("type", "$T.$L", ParameterType.class, ParameterType.TABLE_STRUCTURE.name())
+                                        .build())
                                 .addJavadoc("$S", test.getDescription())
                                 .build());
 
