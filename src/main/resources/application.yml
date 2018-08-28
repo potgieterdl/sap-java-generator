@@ -4,8 +4,8 @@ server:
 sap:
   jco:
     sysnr: "00"
-    user: "dpotgieter"
-    passwd: "mobile"
+    user: ""
+    passwd: ""
     lang: "en"
     poolCapacity: "3"
     peakLimit: "10"
@@ -14,27 +14,26 @@ spring:
   profiles: dev.win
 sap:
   jco:
-    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
+    ashost: "/H/1.1.1.1/W/FunkyChicken99/H/2.2.2.2/S/3200"
     client: "700"
 ---
 spring:
   profiles: dev.mac
 sap:
   jco:
-    ashost: "128.87.245.163"
-#    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.163/S/3200"
+    ashost: "1.1.1.1"
     client: "700"
 ---
 spring:
   profiles: uat.win
 sap:
   jco:
-    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.169/W/FunkyChicken99/H/"
+    ashost: "/H/1.1.1.1/W/FunkyChicken99/H/2.2.2.2/S/3200"
     client: "200"
 ---
 spring:
   profiles: uat.mac
 sap:
   jco:
-    ashost: "/H/197.234.173.1/W/FunkyChicken99/H/128.87.245.161/S/3200"
+    ashost: "/H/1.1.1.1/W/FunkyChicken99/H/2.2.2.2/S/3200"
     client: "200"
